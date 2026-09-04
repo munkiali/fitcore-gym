@@ -6,7 +6,12 @@
 <title>FITCORE GYM | Management System</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
 
 body{
     background:#0d0d0d;
@@ -22,6 +27,7 @@ body{
     background:#151515;
     border-right:1px solid #292929;
     padding:25px 18px;
+    overflow-y:auto;
 }
 
 .logo{
@@ -31,10 +37,10 @@ body{
     margin-bottom:45px;
 }
 
-.logo span{color:#fff}
+.logo span{color:#fff;}
 
-.menu{list-style:none}
-.menu li{margin-bottom:10px}
+.menu{list-style:none;}
+.menu li{margin-bottom:10px;}
 
 .menu a{
     display:block;
@@ -46,7 +52,8 @@ body{
     transition:.2s;
 }
 
-.menu a:hover,.menu a.active{
+.menu a:hover,
+.menu a.active{
     background:#00e5ff;
     color:#000;
 }
@@ -59,7 +66,9 @@ body{
     min-height:100vh;
 }
 
-.hidden{display:none!important}
+.hidden{
+    display:none!important;
+}
 
 /* HEADER */
 .header{
@@ -67,6 +76,10 @@ body{
     justify-content:space-between;
     align-items:center;
     margin-bottom:30px;
+}
+
+.header h1{
+    font-size:28px;
 }
 
 .header p{
@@ -95,14 +108,15 @@ body{
     font-weight:bold;
 }
 
-/* CARDS */
+/* DASHBOARD CARDS */
 .stats{
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:20px;
 }
 
-.card,.panel{
+.card,
+.panel{
     background:#171717;
     border:1px solid #292929;
     border-radius:16px;
@@ -114,8 +128,14 @@ body{
     margin-bottom:15px;
 }
 
-.card p{color:#888}
-.card h2{margin-top:8px;font-size:28px}
+.card p{
+    color:#888;
+}
+
+.card h2{
+    margin-top:8px;
+    font-size:28px;
+}
 
 /* CONTENT */
 .content{
@@ -125,9 +145,11 @@ body{
     margin-top:25px;
 }
 
-.panel h3{margin-bottom:20px}
+.panel h3{
+    margin-bottom:20px;
+}
 
-/* MEMBER LIST */
+/* RECENT MEMBERS */
 .member{
     display:flex;
     justify-content:space-between;
@@ -136,7 +158,9 @@ body{
     border-bottom:1px solid #292929;
 }
 
-.member:last-child{border-bottom:none}
+.member:last-child{
+    border-bottom:none;
+}
 
 .member-info{
     display:flex;
@@ -152,26 +176,40 @@ body{
     display:flex;
     align-items:center;
     justify-content:center;
+    flex-shrink:0;
 }
 
-small{color:#888}
+small{
+    color:#888;
+}
 
+/* STATUS */
 .status{
     padding:6px 10px;
     border-radius:20px;
     font-size:12px;
+    display:inline-block;
 }
 
-.active-status{background:#063a42;color:#00e5ff}
-.due-status{background:#442222;color:#ff7777}
+.active-status{
+    background:rgba(0,229,255,.12);
+    color:#00e5ff;
+}
+
+.due-status{
+    background:rgba(255,77,77,.12);
+    color:#ff6464;
+}
 
 /* BUTTONS */
 button{
     border:none;
     cursor:pointer;
+    transition:.2s;
 }
 
-.action-btn,.primary-btn{
+.action-btn,
+.primary-btn{
     background:#222;
     color:#fff;
     padding:14px;
@@ -182,6 +220,10 @@ button{
     background:#00e5ff;
     color:#000;
     font-weight:bold;
+}
+
+.primary-btn:hover{
+    opacity:.85;
 }
 
 .action-btn:hover{
@@ -195,7 +237,7 @@ button{
     gap:12px;
 }
 
-/* MEMBERS */
+/* TOP ACTIONS */
 .top-actions{
     display:flex;
     justify-content:space-between;
@@ -204,7 +246,9 @@ button{
     gap:15px;
 }
 
-.search,.date-input{
+.search,
+.date-input,
+.filter-select{
     background:#171717;
     border:1px solid #333;
     color:#fff;
@@ -212,43 +256,101 @@ button{
     border-radius:10px;
 }
 
-.search{width:260px}
+.search{
+    width:260px;
+}
+
+/* TABLE */
+.table-wrapper{
+    overflow-x:auto;
+}
 
 .member-table{
     width:100%;
     border-collapse:collapse;
 }
 
-.member-table th,.member-table td{
+.member-table th,
+.member-table td{
     padding:15px;
     border-bottom:1px solid #292929;
     text-align:left;
 }
 
-.member-table th{color:#888}
+.member-table th{
+    color:#888;
+    font-size:14px;
+}
+
+/* IMPROVED EDIT / DELETE BUTTONS */
+.member-table td:last-child{
+    white-space:nowrap;
+}
+
+.edit-btn,
+.delete-btn{
+    padding:9px 12px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:13px;
+    font-weight:600;
+    margin:2px;
+    transition:all .2s ease;
+}
+
+.edit-btn{
+    background:rgba(0,229,255,.12);
+    color:#00e5ff;
+    border:1px solid rgba(0,229,255,.35);
+}
+
+.edit-btn:hover{
+    background:#00e5ff;
+    color:#000;
+    transform:translateY(-1px);
+}
+
+.delete-btn{
+    background:rgba(255,77,77,.12);
+    color:#ff6464;
+    border:1px solid rgba(255,77,77,.35);
+}
+
+.delete-btn:hover{
+    background:#ff4d4d;
+    color:#fff;
+    transform:translateY(-1px);
+}
 
 /* MODAL */
 .modal{
     display:none;
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,.75);
+    background:rgba(0,0,0,.78);
     justify-content:center;
     align-items:center;
     z-index:100;
+    padding:15px;
 }
 
 .modal-box{
     background:#171717;
     padding:25px;
     border-radius:16px;
-    width:400px;
-    max-width:90%;
+    width:420px;
+    max-width:100%;
+    max-height:90vh;
+    overflow-y:auto;
+    border:1px solid #333;
 }
 
-.modal-box h2{margin-bottom:20px}
+.modal-box h2{
+    margin-bottom:20px;
+}
 
-.modal-box input,.modal-box select{
+.modal-box input,
+.modal-box select{
     width:100%;
     padding:12px;
     margin-bottom:12px;
@@ -265,26 +367,30 @@ button{
 }
 
 /* ATTENDANCE */
-.attendance-summary{
+.attendance-summary,
+.payment-summary{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:15px;
     margin-bottom:20px;
 }
 
-.attendance-card{
+.attendance-card,
+.payment-card{
     background:#171717;
     border:1px solid #292929;
     padding:18px;
     border-radius:14px;
 }
 
-.attendance-card p{
+.attendance-card p,
+.payment-card p{
     color:#888;
     margin-bottom:7px;
 }
 
-.attendance-card h2{
+.attendance-card h2,
+.payment-card h2{
     font-size:25px;
 }
 
@@ -310,15 +416,21 @@ button{
     gap:8px;
 }
 
-.present-btn,.absent-btn{
+.present-btn,
+.absent-btn{
     padding:9px 13px;
     border-radius:8px;
-    color:white;
+    color:#fff;
     font-size:13px;
 }
 
-.present-btn{background:#075e4d}
-.absent-btn{background:#632525}
+.present-btn{
+    background:#075e4d;
+}
+
+.absent-btn{
+    background:#632525;
+}
 
 .present-btn.selected{
     outline:2px solid #00e5ff;
@@ -326,6 +438,17 @@ button{
 
 .absent-btn.selected{
     outline:2px solid #ff7777;
+}
+
+/* PAYMENT */
+.payment-positive{
+    color:#00e5ff;
+    font-weight:bold;
+}
+
+.payment-date{
+    color:#888;
+    font-size:13px;
 }
 
 .empty{
@@ -336,50 +459,75 @@ button{
 
 /* MOBILE */
 @media(max-width:900px){
+
     .sidebar{
         width:75px;
         padding:25px 10px;
     }
 
-    .logo{font-size:0}
-    .logo::before{content:"💪";font-size:28px}
+    .logo{
+        font-size:0;
+    }
+
+    .logo::before{
+        content:"💪";
+        font-size:28px;
+    }
 
     .menu a{
         font-size:0;
         text-align:center;
     }
 
-    .menu a::first-letter{font-size:22px}
+    .menu a::first-letter{
+        font-size:22px;
+    }
 
     .main{
         margin-left:75px;
         width:calc(100% - 75px);
     }
 
-    .stats{grid-template-columns:repeat(2,1fr)}
-    .content{grid-template-columns:1fr}
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .content{
+        grid-template-columns:1fr;
+    }
 }
 
 @media(max-width:600px){
-    .main{padding:16px}
 
-    .header h1{font-size:23px}
-    .profile span{display:none}
+    .main{
+        padding:16px;
+    }
+
+    .header h1{
+        font-size:23px;
+    }
+
+    .profile span{
+        display:none;
+    }
 
     .top-actions{
         flex-direction:column;
         align-items:stretch;
     }
 
-    .search{width:100%}
+    .search{
+        width:100%;
+    }
 
-    .attendance-summary{
+    .attendance-summary,
+    .payment-summary{
         grid-template-columns:1fr;
     }
 
     .attendance-row{
-        align-items:flex-start;
         flex-direction:column;
+        align-items:flex-start;
         gap:12px;
     }
 
@@ -395,8 +543,17 @@ button{
         font-size:12px;
     }
 
-    .member-table th,.member-table td{
-        padding:9px 5px;
+    .member-table th,
+    .member-table td{
+        padding:10px 6px;
+    }
+
+    .modal-actions{
+        flex-direction:column;
+    }
+
+    .modal-actions button{
+        width:100%;
     }
 }
 </style>
@@ -407,830 +564,4 @@ button{
 <!-- SIDEBAR -->
 <div class="sidebar">
 
-    <div class="logo">FIT<span>CORE</span></div>
-
-    <ul class="menu">
-        <li><a class="active" onclick="showPage('dashboard',this)">🏠 Dashboard</a></li>
-        <li><a onclick="showPage('members',this)">👥 Members</a></li>
-        <li><a onclick="showPage('attendance',this)">📅 Attendance</a></li>
-        <li><a onclick="comingSoon('Payments')">💳 Payments</a></li>
-        <li><a onclick="comingSoon('Workout Plans')">🏋️ Workout Plans</a></li>
-        <li><a onclick="comingSoon('Trainers')">🧑‍🏫 Trainers</a></li>
-        <li><a onclick="comingSoon('Reports')">📊 Reports</a></li>
-        <li><a onclick="comingSoon('Settings')">⚙️ Settings</a></li>
-    </ul>
-
-</div>
-
-<div class="main">
-
-<!-- DASHBOARD -->
-<div id="dashboardPage">
-
-<div class="header">
-    <div>
-        <h1>Dashboard 👋</h1>
-        <p>Welcome back! Here's what's happening today.</p>
-    </div>
-
-    <div class="profile">
-        <div class="avatar">A</div>
-        <span>Admin</span>
-    </div>
-</div>
-
-<div class="stats">
-
-    <div class="card">
-        <div class="card-icon">👥</div>
-        <p>Total Members</p>
-        <h2 id="totalMembers">0</h2>
-    </div>
-
-    <div class="card">
-        <div class="card-icon">🟢</div>
-        <p>Active Members</p>
-        <h2 id="activeMembers">0</h2>
-    </div>
-
-    <div class="card">
-        <div class="card-icon">⚠️</div>
-        <p>Payment Due</p>
-        <h2 id="dueMembers">0</h2>
-    </div>
-
-    <div class="card">
-        <div class="card-icon">📅</div>
-        <p>Present Today</p>
-        <h2 id="presentToday">0</h2>
-    </div>
-
-</div>
-
-<div class="content">
-
-    <div class="panel">
-        <h3>Recent Members</h3>
-        <div id="recentMembers"></div>
-    </div>
-
-    <div class="panel">
-        <h3>Quick Actions</h3>
-
-        <div class="actions">
-            <button class="action-btn" onclick="openModal()">➕ Add Member</button>
-            <button class="action-btn" onclick="showPage('members')">👥 Members</button>
-            <button class="action-btn" onclick="showPage('attendance')">📅 Attendance</button>
-            <button class="action-btn" onclick="comingSoon('Payments')">💳 Payments</button>
-        </div>
-    </div>
-
-</div>
-
-</div>
-
-
-<!-- MEMBERS PAGE -->
-<div id="membersPage" class="hidden">
-
-<div class="header">
-    <div>
-        <h1>Members 👥</h1>
-        <p>Manage your gym members</p>
-    </div>
-</div>
-
-<div class="top-actions">
-
-    <input type="text" class="search"
-    placeholder="🔍 Search member..."
-    onkeyup="searchMembers(this.value)">
-
-    <button class="primary-btn" onclick="openModal()">➕ Add Member</button>
-
-</div>
-
-<div class="panel">
-
-<table class="member-table">
-
-<thead>
-<tr>
-    <th>Name</th>
-    <th>Phone</th>
-    <th>Age</th>
-    <th>Plan</th>
-    <th>Status</th>
-    <th>Actions</th>
-</tr>
-</thead>
-
-<tbody id="membersTable"></tbody>
-
-</table>
-
-</div>
-
-</div>
-
-
-<!-- ATTENDANCE PAGE -->
-<div id="attendancePage" class="hidden">
-
-<div class="header">
-    <div>
-        <h1>Attendance 📅</h1>
-        <p>Mark and manage daily member attendance.</p>
-    </div>
-</div>
-
-<div class="top-actions">
-
-    <input
-        type="date"
-        id="attendanceDate"
-        class="date-input"
-        onchange="loadAttendance()"
-    >
-
-    <button class="primary-btn" onclick="markAllPresent()">
-        ✅ Mark All Present
-    </button>
-
-</div>
-
-<div class="attendance-summary">
-
-    <div class="attendance-card">
-        <p>Total Members</p>
-        <h2 id="attendanceTotal">0</h2>
-    </div>
-
-    <div class="attendance-card">
-        <p>Present</p>
-        <h2 id="attendancePresent">0</h2>
-    </div>
-
-    <div class="attendance-card">
-        <p>Absent</p>
-        <h2 id="attendanceAbsent">0</h2>
-    </div>
-
-</div>
-
-<div id="attendanceList"></div>
-
-</div>
-
-</div>
-
-
-<!-- MEMBER MODAL -->
-<div class="modal" id="memberModal">
-
-<div class="modal-box">
-
-<h2 id="modalTitle">Add New Member</h2>
-
-<input id="memberName" placeholder="Full Name">
-<input id="memberPhone" placeholder="Phone Number">
-<input id="memberAge" type="number" placeholder="Age">
-
-<select id="memberPlan">
-    <option value="Monthly">Monthly</option>
-    <option value="Quarterly">Quarterly</option>
-    <option value="Yearly">Yearly</option>
-</select>
-
-<select id="memberStatus">
-    <option value="Active">Active</option>
-    <option value="Payment Due">Payment Due</option>
-</select>
-
-<div class="modal-actions">
-    <button class="action-btn" onclick="closeModal()">Cancel</button>
-    <button class="primary-btn" onclick="saveMember()">Save Member</button>
-</div>
-
-</div>
-
-</div>
-
-
-<script>
-
-/* =====================
-   MEMBERS DATABASE
-===================== */
-
-let members = JSON.parse(localStorage.getItem("fitcoreMembers")) || [
-    {
-        id:1,
-        name:"Rahul Sharma",
-        phone:"9876543210",
-        age:25,
-        plan:"Monthly",
-        status:"Active"
-    },
-    {
-        id:2,
-        name:"Arif Khan",
-        phone:"9123456789",
-        age:28,
-        plan:"Monthly",
-        status:"Payment Due"
-    },
-    {
-        id:3,
-        name:"Sumit Das",
-        phone:"9988776655",
-        age:23,
-        plan:"Yearly",
-        status:"Active"
-    }
-];
-
-let editingId = null;
-
-/* =====================
-   ATTENDANCE DATABASE
-
-   Format:
-   {
-     "2026-09-04": {
-       "123": "Present",
-       "456": "Absent"
-     }
-   }
-===================== */
-
-let attendanceData =
-    JSON.parse(localStorage.getItem("fitcoreAttendance")) || {};
-
-
-/* SAVE */
-function saveData(){
-    localStorage.setItem("fitcoreMembers",JSON.stringify(members));
-}
-
-function saveAttendance(){
-    localStorage.setItem(
-        "fitcoreAttendance",
-        JSON.stringify(attendanceData)
-    );
-}
-
-
-/* =====================
-   DASHBOARD
-===================== */
-
-function updateDashboard(){
-
-    document.getElementById("totalMembers").innerText =
-        members.length;
-
-    document.getElementById("activeMembers").innerText =
-        members.filter(m=>m.status==="Active").length;
-
-    document.getElementById("dueMembers").innerText =
-        members.filter(m=>m.status==="Payment Due").length;
-
-
-    const today = getLocalDate();
-
-    const todayAttendance = attendanceData[today] || {};
-
-    const presentCount = Object.values(todayAttendance)
-        .filter(status=>status==="Present").length;
-
-    document.getElementById("presentToday").innerText =
-        presentCount;
-
-
-    let recent = document.getElementById("recentMembers");
-
-    if(members.length === 0){
-        recent.innerHTML =
-        `<div class="empty">No members added yet.</div>`;
-        return;
-    }
-
-    recent.innerHTML="";
-
-    members.slice(-5).reverse().forEach(m=>{
-
-        recent.innerHTML += `
-
-        <div class="member">
-
-            <div class="member-info">
-
-                <div class="member-avatar">
-                    ${escapeHtml(m.name.charAt(0).toUpperCase())}
-                </div>
-
-                <div>
-                    <strong>${escapeHtml(m.name)}</strong><br>
-                    <small>${escapeHtml(m.plan)} Plan</small>
-                </div>
-
-            </div>
-
-            <span class="status ${
-                m.status==="Active"
-                ? "active-status"
-                : "due-status"
-            }">
-                ${escapeHtml(m.status)}
-            </span>
-
-        </div>`;
-    });
-}
-
-
-/* =====================
-   MEMBERS
-===================== */
-
-function renderMembers(list=members){
-
-    let table =
-        document.getElementById("membersTable");
-
-    if(list.length===0){
-        table.innerHTML =
-        `<tr><td colspan="6" class="empty">
-        No members found.
-        </td></tr>`;
-        return;
-    }
-
-    table.innerHTML="";
-
-    list.forEach(m=>{
-
-        table.innerHTML += `
-
-        <tr>
-
-        <td>${escapeHtml(m.name)}</td>
-        <td>${escapeHtml(m.phone)}</td>
-        <td>${escapeHtml(String(m.age))}</td>
-        <td>${escapeHtml(m.plan)}</td>
-
-        <td>
-        <span class="status ${
-            m.status==="Active"
-            ? "active-status"
-            : "due-status"
-        }">
-        ${escapeHtml(m.status)}
-        </span>
-        </td>
-
-        <td>
-
-        <button class="edit-btn"
-        onclick="editMember(${m.id})">
-        Edit
-        </button>
-
-        <button class="delete-btn"
-        onclick="deleteMember(${m.id})">
-        Delete
-        </button>
-
-        </td>
-
-        </tr>`;
-    });
-}
-
-
-function searchMembers(query){
-
-    query=query.toLowerCase();
-
-    let filtered=members.filter(m=>
-        m.name.toLowerCase().includes(query) ||
-        m.phone.includes(query) ||
-        m.plan.toLowerCase().includes(query)
-    );
-
-    renderMembers(filtered);
-}
-
-
-/* =====================
-   MEMBER MODAL
-===================== */
-
-function openModal(){
-
-    editingId=null;
-
-    document.getElementById("modalTitle").innerText =
-        "Add New Member";
-
-    document.getElementById("memberName").value="";
-    document.getElementById("memberPhone").value="";
-    document.getElementById("memberAge").value="";
-    document.getElementById("memberPlan").value="Monthly";
-    document.getElementById("memberStatus").value="Active";
-
-    document.getElementById("memberModal").style.display="flex";
-}
-
-
-function closeModal(){
-    document.getElementById("memberModal").style.display="none";
-}
-
-
-function saveMember(){
-
-    let name =
-        document.getElementById("memberName").value.trim();
-
-    let phone =
-        document.getElementById("memberPhone").value.trim();
-
-    let age =
-        document.getElementById("memberAge").value;
-
-    let plan =
-        document.getElementById("memberPlan").value;
-
-    let status =
-        document.getElementById("memberStatus").value;
-
-
-    if(!name || !phone || !age){
-        alert("Please fill all required fields!");
-        return;
-    }
-
-
-    if(editingId){
-
-        let member =
-            members.find(m=>m.id===editingId);
-
-        member.name=name;
-        member.phone=phone;
-        member.age=age;
-        member.plan=plan;
-        member.status=status;
-
-    }else{
-
-        members.push({
-            id:Date.now(),
-            name,
-            phone,
-            age,
-            plan,
-            status
-        });
-    }
-
-
-    saveData();
-
-    renderMembers();
-
-    updateDashboard();
-
-    closeModal();
-
-    /* Refresh attendance because a new member may exist */
-    loadAttendance();
-}
-
-
-function editMember(id){
-
-    let member =
-        members.find(m=>m.id===id);
-
-    if(!member) return;
-
-    editingId=id;
-
-    document.getElementById("modalTitle").innerText =
-        "Edit Member";
-
-    document.getElementById("memberName").value=member.name;
-    document.getElementById("memberPhone").value=member.phone;
-    document.getElementById("memberAge").value=member.age;
-    document.getElementById("memberPlan").value=member.plan;
-    document.getElementById("memberStatus").value=member.status;
-
-    document.getElementById("memberModal").style.display="flex";
-}
-
-
-function deleteMember(id){
-
-    if(!confirm("Delete this member?")) return;
-
-    members=members.filter(m=>m.id!==id);
-
-    /* Remove member attendance history */
-    Object.keys(attendanceData).forEach(date=>{
-        delete attendanceData[date][id];
-    });
-
-    saveData();
-    saveAttendance();
-
-    renderMembers();
-    updateDashboard();
-    loadAttendance();
-}
-
-
-/* =====================
-   ATTENDANCE SYSTEM
-===================== */
-
-function getLocalDate(){
-
-    const now = new Date();
-
-    const offset =
-        now.getTimezoneOffset();
-
-    const local =
-        new Date(now.getTime() - offset*60000);
-
-    return local.toISOString().split("T")[0];
-}
-
-
-function loadAttendance(){
-
-    const dateInput =
-        document.getElementById("attendanceDate");
-
-    if(!dateInput.value){
-        dateInput.value=getLocalDate();
-    }
-
-    const selectedDate=dateInput.value;
-
-    if(!attendanceData[selectedDate]){
-        attendanceData[selectedDate]={};
-    }
-
-    const list =
-        document.getElementById("attendanceList");
-
-
-    if(members.length===0){
-
-        list.innerHTML=
-        `<div class="panel empty">
-        No members found. Add members first.
-        </div>`;
-
-        updateAttendanceSummary();
-        return;
-    }
-
-
-    list.innerHTML="";
-
-    members.forEach(member=>{
-
-        /* Default is Absent until marked Present */
-        const status =
-            attendanceData[selectedDate][member.id] ||
-            "Absent";
-
-        list.innerHTML += `
-
-        <div class="attendance-row">
-
-            <div class="attendance-member">
-
-                <div class="member-avatar">
-                    ${escapeHtml(member.name.charAt(0).toUpperCase())}
-                </div>
-
-                <div>
-                    <strong>${escapeHtml(member.name)}</strong><br>
-                    <small>${escapeHtml(member.plan)} Plan</small>
-                </div>
-
-            </div>
-
-            <div class="attendance-actions">
-
-                <button
-                    class="present-btn ${
-                        status==="Present" ? "selected" : ""
-                    }"
-                    onclick="markAttendance(
-                        ${member.id},
-                        'Present'
-                    )"
-                >
-                    ✅ Present
-                </button>
-
-                <button
-                    class="absent-btn ${
-                        status==="Absent" ? "selected" : ""
-                    }"
-                    onclick="markAttendance(
-                        ${member.id},
-                        'Absent'
-                    )"
-                >
-                    ❌ Absent
-                </button>
-
-            </div>
-
-        </div>`;
-    });
-
-
-    updateAttendanceSummary();
-}
-
-
-function markAttendance(memberId,status){
-
-    const date =
-        document.getElementById("attendanceDate").value;
-
-    if(!date) return;
-
-    if(!attendanceData[date]){
-        attendanceData[date]={};
-    }
-
-    attendanceData[date][memberId]=status;
-
-    saveAttendance();
-
-    loadAttendance();
-
-    updateDashboard();
-}
-
-
-function markAllPresent(){
-
-    const date =
-        document.getElementById("attendanceDate").value;
-
-    if(!date){
-        alert("Please select a date.");
-        return;
-    }
-
-    if(members.length===0){
-        alert("No members available.");
-        return;
-    }
-
-    if(!attendanceData[date]){
-        attendanceData[date]={};
-    }
-
-    members.forEach(member=>{
-        attendanceData[date][member.id]="Present";
-    });
-
-    saveAttendance();
-
-    loadAttendance();
-
-    updateDashboard();
-}
-
-
-function updateAttendanceSummary(){
-
-    const date =
-        document.getElementById("attendanceDate").value;
-
-    const records =
-        attendanceData[date] || {};
-
-    let present=0;
-    let absent=0;
-
-    members.forEach(member=>{
-
-        const status =
-            records[member.id] || "Absent";
-
-        if(status==="Present"){
-            present++;
-        }else{
-            absent++;
-        }
-
-    });
-
-
-    document.getElementById("attendanceTotal").innerText =
-        members.length;
-
-    document.getElementById("attendancePresent").innerText =
-        present;
-
-    document.getElementById("attendanceAbsent").innerText =
-        absent;
-}
-
-
-/* =====================
-   PAGE NAVIGATION
-===================== */
-
-function showPage(page,element){
-
-    document.getElementById("dashboardPage")
-        .classList.add("hidden");
-
-    document.getElementById("membersPage")
-        .classList.add("hidden");
-
-    document.getElementById("attendancePage")
-        .classList.add("hidden");
-
-
-    document.querySelectorAll(".menu a")
-        .forEach(a=>a.classList.remove("active"));
-
-
-    if(page==="dashboard"){
-
-        document.getElementById("dashboardPage")
-            .classList.remove("hidden");
-
-        updateDashboard();
-
-    }
-
-    else if(page==="members"){
-
-        document.getElementById("membersPage")
-            .classList.remove("hidden");
-
-        renderMembers();
-
-    }
-
-    else if(page==="attendance"){
-
-        document.getElementById("attendancePage")
-            .classList.remove("hidden");
-
-        loadAttendance();
-    }
-
-
-    if(element){
-        element.classList.add("active");
-    }
-}
-
-
-function comingSoon(page){
-    alert(page+" module will be added next!");
-}
-
-
-/* Basic HTML escaping for user-entered values */
-function escapeHtml(value){
-    return String(value)
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
-}
-
-
-/* =====================
-   INITIAL LOAD
-===================== */
-
-document.getElementById("attendanceDate").value =
-    getLocalDate();
-
-updateDashboard();
-renderMembers();
-
-</script>
-
-</body>
-</html>
+    <div class="logo">FIT<span>
